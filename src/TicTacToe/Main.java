@@ -18,7 +18,7 @@ public class Main {
         GameStatus currStatus = newGame.startGame();
         switch (currStatus) {
             case WIN:
-                System.out.println(newGame.winner+" won the game!");
+                System.out.println(newGame.winner.getName()+" won the game!");
                 break;
             case DRAW:
                 System.out.println("Draw!");
