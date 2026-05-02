@@ -22,7 +22,7 @@ public class VendingMachine {
         this.vendingMachineState = vendingMachineState;
     }
 
-    public State getVendingMachineState(HasMoneyState hasMoneyState){
+    public State getVendingMachineState(){
         return  this.vendingMachineState;
     }
 

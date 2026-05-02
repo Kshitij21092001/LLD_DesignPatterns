@@ -8,19 +8,19 @@ public class Inventory {
 
     public Inventory(int itemCount, int shelfCapacity) {
         inventory = new ArrayList<ItemShelf>(itemCount);
-        initialEmptyInventory(shelfCapacity);
+        initialEmptyInventory(itemCount, shelfCapacity);
     }
 
     public List<ItemShelf> getInventory() {
         return inventory;
     }
 
-    void initialEmptyInventory(int shelfCapacity) {
+    void initialEmptyInventory(int itemCount, int shelfCapacity) {
         int code=101;
-        for (int i = 0; i < inventory.size(); i++) {
+        for (int i = 0; i < itemCount; i++) {
             ItemShelf newShelf = new ItemShelf(code,shelfCapacity);
             newShelf.setSoldOut(true);
-            inventory.add(i,newShelf);
+            inventory.add(newShelf);
             code++;
         }
     }
@@ -44,6 +44,7 @@ public class Inventory {
         for(ItemShelf itemShelf : inventory){
             if(itemShelf.getCode()==code){
                 if(!itemShelf.isSoldOut()){
+                    System.out.println("Current item count is: "+ itemShelf.getCurrentItemCount());
                     itemShelf.setCurrentItemCount(itemShelf.getCurrentItemCount()-1);
                     if(itemShelf.getCurrentItemCount()==0){
                         itemShelf.setSoldOut(true);
@@ -51,6 +52,18 @@ public class Inventory {
                     return itemShelf.getItem();
                 }
                 else throw new Exception("Sold out");
+            }
+        }
+        throw new Exception("Item not found");
+    }
+
+    public Item findItem(int code) throws Exception{
+        for(ItemShelf itemShelf : inventory){
+            if(itemShelf.getCode()==code){
+                if(!itemShelf.isSoldOut()){
+                    return itemShelf.getItem();
+                }
+                else throw new Exception("Item sold out.");
             }
         }
         throw new Exception("Item not found");

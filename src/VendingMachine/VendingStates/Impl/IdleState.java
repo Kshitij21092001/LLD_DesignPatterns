@@ -18,7 +18,7 @@ public class IdleState implements State {
 
     @Override
     public void clickOnInsertCoinButton(VendingMachine machine) throws  Exception {
-        machine.getVendingMachineState(new HasMoneyState());
+        machine.setVendingMachineState(new HasMoneyState());
     }
 
     @Override
