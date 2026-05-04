@@ -21,11 +21,11 @@ public class CashWithdrawalState extends ATMState {
         System.out.println("Enter the amount to withdraw:");
         amount=input.nextInt();
 
-        if(amount<atm.getATMBalance()){
+        if(amount>atm.getATMBalance()){
             System.out.println("Insufficient money in ATM.");
             returnCard(atm);
         }
-        else if(amount< card.getBalance()){
+        else if(amount> card.getBalance()){
             System.out.println("Insufficient money in Bank Account.");
             returnCard(atm);
         }

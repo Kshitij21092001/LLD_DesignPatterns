@@ -18,10 +18,10 @@ public class HasCardState extends ATMState{
         pin = sc.nextInt();
         int attempts = 3;
         while(!card.isPinCorrect(pin) && attempts!=0){
-            System.out.print("Enter pin again: ");
-            pin = sc.nextInt();
             attempts--;
             System.out.println("Incorrect pin! Attempts remaining: "+attempts);
+            System.out.print("Enter pin again: ");
+            pin = sc.nextInt();
         }
         if(card.isPinCorrect(pin)){
             System.out.println("Card has been successfully authenticated!");

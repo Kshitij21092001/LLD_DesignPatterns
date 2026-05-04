@@ -10,7 +10,7 @@ public class IdleState extends ATMState{
 
     @Override
     public void insertCard(ATM atm, Card card){
-        System.out.println("Card has been inserted");
+        System.out.println("Card has been inserted" + card.getBalance());
         atm.setATMState(new HasCardState());
     }
 }
