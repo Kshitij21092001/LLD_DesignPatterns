@@ -22,8 +22,8 @@ public class ExpenseController {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-        //Complete this one ->>>>>>
-        //balanceSheet.complete balance sheet
+
+        balanceSheetController.updateUserExpenseBalanceSheet(paidByUser,expenseAmount,splitDetails);
         return new Expense(expenseID,description,expenseAmount,paidByUser,splitType,splitDetails);
     }
 }
